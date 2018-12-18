@@ -1,0 +1,160 @@
+@import (reference) "../../../src/style/index.less";
+
+
+.buttons-grid {
+  display: flex;
+  justify-content: space-around;
+  margin: 1rem;
+}
+
+// for carousel demo
+
+.ant-carousel .slick-slide {
+  text-align: center;
+  height: 160px;
+  line-height: 160px;
+  background: #364d79;
+  overflow: hidden;
+}
+
+.ant-carousel .slick-slide h3 {
+  color: #fff;
+}
+
+.spacing-container {
+  background-color: @gray-2;
+  height: auto;
+  line-height: 0;
+  border: 1px solid @gray-3;
+  div {
+    width: 100px;
+    height: 100px;
+    background-color: #0c7cff;
+    display: inline-block;
+    border: 1px solid @gray-3;
+  }
+}
+
+.custom-panel {
+  background-color: green !important;
+  color: white;
+};
+
+.color-container {
+  display: flex;
+  justify-content: space-around;
+}
+
+.color-row {
+  display: flex;
+  width: 100%;
+}
+
+.color-col {
+  width: 100%;
+}
+
+.color-col > div,
+.color-row > div {
+  text-align: center;
+  height: 6rem;
+  line-height: 6rem;
+  flex-grow: 1;
+}
+
+.primary-color {
+  margin-bottom: 1rem;
+  height: 10rem !important;
+}
+
+.avatar-bg {
+  text-align: center;
+  background-color: @scouting-blue;
+  height: 15rem;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+// mixins
+
+.make-color(@name, @n) {
+  .@{name}-@{n} {
+    @bgcolor: "@{name}-@{n}";
+    background-color: @@bgcolor;
+  }
+}
+
+.make-single-color(@name) {
+  .@{name} {
+    @bgcolor: "@{name}";
+    background-color: @@bgcolor;
+  }
+}
+
+.make-pallete(@name, @n:1) when (@n <= 8) {
+  .make-color(@name, @n);
+  .make-pallete(@name, (@n+1));
+}
+
+.make-single-color(~"scouting-blue");
+.make-single-color(~"scouting-red");
+.make-single-color(~"scouting-tan");
+.make-single-color(~"scouting-warm-gray");
+
+.make-single-color(~"scouting-dark-blue");
+.make-single-color(~"scouting-pale-blue");
+
+.make-single-color(~"scouting-dark-tan");
+.make-single-color(~"scouting-light-tan");
+
+.make-single-color(~"scouting-dark-gray");
+.make-single-color(~"scouting-pale-gray");
+
+.make-single-color(~"scouting-dark-red");
+.make-single-color(~"scouting-pale-red");
+
+.make-single-color(~"cub-scout-blue");
+.make-single-color(~"cub-scout-yellow");
+
+.make-single-color(~"boy-scout-blue");
+.make-single-color(~"boy-scout-red");
+.make-single-color(~"boy-scout-tan");
+.make-single-color(~"boy-scout-olive");
+
+.make-single-color(~"venturing-green");
+.make-single-color(~"venturing-yellow");
+
+.make-single-color(~"sea-scout-blue");
+.make-single-color(~"sea-scout-pale-blue");
+.make-single-color(~"sea-scout-yellow");
+
+.make-single-color(~"stem-red");
+.make-single-color(~"stem-yellow");
+.make-single-color(~"stem-blue");
+.make-single-color(~"stem-warm-black");
+
+.make-single-color(~"exploring-deep-blue");
+.make-single-color(~"exploring-mid-blue");
+.make-single-color(~"exploring-light-blue");
+.make-single-color(~"exploring-green");
+
+.make-single-color(~"dark-red-status");
+.make-single-color(~"red-status");
+.make-single-color(~"orange-status");
+.make-single-color(~"yellow-status");
+.make-single-color(~"gray-status");
+.make-single-color(~"green-status");
+.make-single-color(~"black-status");
+.make-single-color(~"blue-status");
+.make-single-color(~"light-blue-status");
+
+.make-single-color(~"primary");
+.make-single-color(~"info");
+.make-single-color(~"success");
+.make-single-color(~"error");
+.make-single-color(~"highlight");
+.make-single-color(~"warning");
+
+.make-pallete(~"gray");
+.make-pallete(~"primary");
